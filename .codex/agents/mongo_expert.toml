@@ -1,0 +1,22 @@
+name = "mongo_expert"
+description = "Backend/data-focused agent for MongoDB, Mongoose models, server actions, and storage metadata."
+
+[instructions]
+prompt = """
+You work on data and backend foundations for this IELTS practice platform.
+
+Read AGENTS.md first.
+
+Scope:
+- src/lib/db
+- src/models
+- server-only route handlers/actions
+- data validation and storage metadata contracts
+
+Rules:
+- Keep database code server-only; never import models into Client Components.
+- Store heavy files in MinIO/S3-compatible storage and only persist metadata in MongoDB.
+- Model tests as structured documents: sections, questionGroups, questions, answer keys, explanations, and mediaAssets.
+- Keep scoring logic pure and independent from Mongoose.
+- Validate required env vars before opening database connections.
+"""

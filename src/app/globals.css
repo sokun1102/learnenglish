@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --color-ink: #0f172a; /* Slate 900 */
+  --color-paper: #f8fafc; /* Slate 50 */
+  --color-line: #e2e8f0; /* Slate 200 */
+  --color-moss: #2563eb; /* Royal Blue - Signature IELTS Brand Color */
+  --color-coral: #ef4444; /* Red 500 */
+  --color-gold: #d97706; /* Amber 600 */
+  --color-sky-blue: #2563eb; /* Royal Blue */
+  --shadow-soft: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+:root {
+  color-scheme: light;
+  background: #f8fafc; /* Clean modern slate 50 background */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+input,
+textarea,
+select {
+  min-width: 0;
+}
+
+/* Modern white bento-style cards */
+.paper-panel {
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+.focus-ring {
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.2);
+  border-color: #0f766e;
+}
+
+/* Custom scrollbars for split panels */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Drag-to-resize split screen classes */
+.workspace-container {
+  display: grid;
+  height: calc(100vh - 100px);
+  overflow: hidden;
+  position: relative;
+}
+
+.resizer-handle {
+  width: 8px;
+  cursor: col-resize;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+  position: relative;
+  z-index: 10;
+  margin: 0 -4px;
+}
+
+.resizer-handle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3px;
+  width: 2px;
+  background-color: #e2e8f0; /* Slate 200 */
+  transition: background-color 0.2s ease;
+}
+
+.resizer-handle:hover::after,
+.resizer-handle:active::after {
+  background-color: #2563eb; /* Royal Blue / Moss */
+  width: 4px;
+  left: 2px;
+}
+
+/* Pulse Highlight for Evidence tracing */
+.evidence-highlight {
+  background-color: #fef08a; /* Yellow 200 */
+  color: #0f172a;
+  border-bottom: 2px solid #eab308; /* Yellow 500 */
+  border-radius: 2px;
+  padding: 0 4px;
+  font-weight: 500;
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    background-color: rgba(254, 240, 138, 0.9);
+  }
+  50% {
+    background-color: rgba(254, 240, 138, 0.4);
+  }
+}
+
+/* Anti-Cheat Pause overlay */
+.pause-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(248, 250, 252, 0.85); /* Slate 50 with opacity */
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in 0.25s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Flagged question highlight */
+.flagged-badge {
+  color: #eab308; /* Yellow 500 */
+  animation: flag-bounce 0.5s ease-out;
+}
+
+@keyframes flag-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
